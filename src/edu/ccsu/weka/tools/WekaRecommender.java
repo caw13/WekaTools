@@ -71,7 +71,8 @@ public class WekaRecommender {
         currentTrainInstances.setClassIndex(attrIndex);
         currentClassifier.buildClassifier(currentTrainInstances);
         double predictedRating = currentClassifier.classifyInstance(passedInstance);
-        recommendations.put(predictedRating, attrIndex + "");
+        String movieId = currentTrainInstances.attribute(attrIndex).name();
+        recommendations.put(predictedRating, movieId);
       }
     }
     return recommendations;
